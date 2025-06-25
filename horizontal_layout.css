@@ -1,0 +1,16 @@
+/* Screen { */
+/*     layout: ; */
+/* } */
+
+.box {
+  height: 100%;
+  border: round palegreen;
+}
+
+.machines {
+  width: 1fr;
+}
+
+.logs {
+  width: 2fr;
+}
