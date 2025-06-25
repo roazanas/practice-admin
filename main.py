@@ -1,6 +1,7 @@
 import json
 import pathlib
 from typing import Union
+import asyncio
 
 from textual import on
 from textual.app import App, ComposeResult
@@ -28,7 +29,7 @@ class LogsCheckerApp(App):
         self.table = self.query_one(DataTable)
 
     @on(DirectoryTree.NodeHighlighted)
-    def on_node_highlighted(self, event: DirectoryTree.NodeHighlighted):
+    async def on_node_highlighted(self, event: DirectoryTree.NodeHighlighted):
         entry = event.node.data
         if entry is None:
             return
@@ -37,8 +38,8 @@ class LogsCheckerApp(App):
         if not file_path.is_file():
             return
 
-        cols, rows = self.get_cols_rows(file_path)
-        self.table.clear()
+        cols, rows = await asyncio.to_thread(self.get_cols_rows, file_path)
+        self.table.clear(columns=True)
         self.table.add_columns(*cols)
         self.table.add_rows(rows)
 
