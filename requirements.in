@@ -1,2 +1,8 @@
 textual
 textual-dev
+
+sqlalchemy
+asyncpg
+pydantic-settings
+
+pip-tools

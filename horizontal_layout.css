@@ -1,16 +1,14 @@
-/* Screen { */
-/*     layout: ; */
-/* } */
+#hosts_table {
+  height: 100%;
+  border: none;
+  overflow: auto;
+}
 
 .box {
   height: 100%;
-  border: round palegreen;
 }
 
-.machines {
-  width: 1fr;
-}
-
-.logs {
-  width: 2fr;
+#host_logs, #host_info {
+  border: none;
+  padding: 0;
 }
